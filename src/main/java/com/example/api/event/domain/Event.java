@@ -1,7 +1,7 @@
-package com.example.api.domain.event;
+package com.example.api.event.domain;
 
-import com.example.api.domain.BaseEntity;
-import com.example.api.domain.event.enums.EventStatus;
+import com.example.api.utils.BaseEntity;
+import com.example.api.event.domain.enums.EventStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

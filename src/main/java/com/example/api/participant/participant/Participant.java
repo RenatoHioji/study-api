@@ -1,4 +1,4 @@
-package com.example.api.domain.person.participant;
+package com.example.api.participant.participant;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

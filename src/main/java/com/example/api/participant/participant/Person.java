@@ -1,6 +1,6 @@
-package com.example.api.domain.person.participant;
+package com.example.api.participant.participant;
 
-import com.example.api.domain.BaseEntity;
+import com.example.api.utils.BaseEntity;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;

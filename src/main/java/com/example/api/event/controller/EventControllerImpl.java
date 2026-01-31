@@ -17,21 +17,21 @@ public class EventControllerImpl implements EventController{
 
     @Override
     public ResponseEntity<EventDTOResponse> create(@RequestBody @Validated EventCreateDTORequest request) {
-        return null;
+        return ResponseEntity.status(201).build();
     }
 
     @Override
     public ResponseEntity<EventDTOResponse> findById(String id) {
-        return null;
+        return ResponseEntity.ok().build();
     }
 
     @Override
     public ResponseEntity<List<EventDTOResponse>> find(@RequestParam("pageNum") int pageNum, @RequestParam("pageSize") int pageSize) {
-        return null;
+        return ResponseEntity.ok().build();
     }
 
     @Override
     public ResponseEntity<Void> deleteById(String id) {
-        return null;
+        return ResponseEntity.noContent().build();
     }
 }

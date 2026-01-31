@@ -1,6 +1,7 @@
 package com.example.api.event.controller;
 
-import com.example.api.event.dtos.EventResponseDTO;
+import com.example.api.event.dtos.EventCreateDTORequest;
+import com.example.api.event.dtos.EventDTOResponse;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -8,8 +9,8 @@ import java.util.List;
 
 public interface EventController {
 
-    ResponseEntity<EventResponseDTO> create();
-    ResponseEntity<EventResponseDTO> findById();
-    ResponseEntity<List<EventResponseDTO>> find(int pageNum, int pageSize);
-    ResponseEntity<Void> deleteById();
+    ResponseEntity<EventDTOResponse> create(EventCreateDTORequest request);
+    ResponseEntity<EventDTOResponse> findById(String id);
+    ResponseEntity<List<EventDTOResponse>> find(int pageNum, int pageSize);
+    ResponseEntity<Void> deleteById(String id);
 }

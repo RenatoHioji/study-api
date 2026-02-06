@@ -1,3 +1,7 @@
 spring:
   application:
     name: api
+
+  graphql:
+    graphiql:
+      enabled: true

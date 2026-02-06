@@ -1,4 +1,4 @@
-package com.example.api.utils;
+package com.example.api.event.utils;
 
 import java.time.LocalDateTime;
 

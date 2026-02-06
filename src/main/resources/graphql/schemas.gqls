@@ -1,0 +1,13 @@
+type Query {
+    events: [Event!]!
+}
+
+type Event{
+    id: ID!
+    capacity: Int!
+    eventStatus: EventStatus!
+}
+
+enum EventStatus{
+    OPEN, CLOSED, ON_GOING, FULL, CANCELED, COMPLETED
+}

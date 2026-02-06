@@ -2,12 +2,11 @@ package com.example.api.event.controller;
 
 import com.example.api.event.dtos.EventCreateDTORequest;
 import com.example.api.event.dtos.EventDTOResponse;
+import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,22 +15,26 @@ import java.util.List;
 public class EventControllerImpl implements EventController{
 
     @Override
+    @PostMapping
     public ResponseEntity<EventDTOResponse> create(@RequestBody @Validated EventCreateDTORequest request) {
         return ResponseEntity.status(201).build();
     }
 
     @Override
-    public ResponseEntity<EventDTOResponse> findById(String id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<EventDTOResponse> findById(@PathVariable("id") String id) {
         return ResponseEntity.ok().build();
     }
 
     @Override
-    public ResponseEntity<List<EventDTOResponse>> find(@RequestParam("pageNum") int pageNum, @RequestParam("pageSize") int pageSize) {
+    @QueryMapping
+    public ResponseEntity<List<EventDTOResponse>> find(@Argument int pageNum, @Argument int pageSize) {
         return ResponseEntity.ok().build();
     }
 
     @Override
-    public ResponseEntity<Void> deleteById(String id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable("id") String id) {
         return ResponseEntity.noContent().build();
     }
 }

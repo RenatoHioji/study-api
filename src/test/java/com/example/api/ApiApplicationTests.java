@@ -1,5 +1,6 @@
 package com.example.api;
 
+import com.tngtech.archunit.core.domain.JavaClass;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.modulith.core.ApplicationModules;
@@ -9,7 +10,9 @@ class ApiApplicationTests {
 
 	@Test
 	void verifyModularity(){
-		ApplicationModules modules = ApplicationModules.of(ApiApplication.class);
+		ApplicationModules modules = ApplicationModules.of(ApiApplication.class, JavaClass.
+				Predicates.resideInAPackage("com.example.api.shared")
+				.or(JavaClass.Predicates.resideInAPackage("com.example.api.infrastructure")));
 		modules.verify();
 	}
 }

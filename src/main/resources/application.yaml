@@ -5,3 +5,8 @@ spring:
   graphql:
     graphiql:
       enabled: true
+  data:
+    redis:
+      port: 6379
+      timeout: 60000
+      host: localhost

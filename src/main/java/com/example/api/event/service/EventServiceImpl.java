@@ -2,7 +2,9 @@ package com.example.api.event.service;
 
 import com.example.api.event.dtos.EventCreateDTORequest;
 import com.example.api.event.dtos.EventDTOResponse;
+import com.example.api.event.mapper.EventMapper;
 import com.example.api.event.repository.EventRepository;
+import com.example.api.shared.IdUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +17,12 @@ public class EventServiceImpl implements EventService{
     private final EventRepository eventRepository;
     @Override
     public EventDTOResponse create(EventCreateDTORequest request) {
-        return null;
+        return EventMapper.eventoDTOResponseFromEvent(eventRepository.save(EventMapper.eventFromCreateDTORequest(request)));
     }
 
     @Override
     public EventDTOResponse findById(String id) {
-        return null;
+        return eventRepository.findById(IdUtils.stringToId(id));
     }
 
     @Override

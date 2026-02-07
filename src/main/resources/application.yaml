@@ -5,6 +5,8 @@ spring:
   graphql:
     graphiql:
       enabled: true
+  mongodb:
+    uri: mongodb://root:password@localhost:27017/appdb?authSource=admin
   data:
     redis:
       port: 6379

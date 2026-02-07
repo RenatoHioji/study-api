@@ -5,6 +5,7 @@ import com.example.api.event.dtos.EventDTOResponse;
 import com.example.api.event.mapper.EventMapper;
 import com.example.api.event.repository.EventRepository;
 import com.example.api.shared.IdUtils;
+import com.example.api.shared.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,9 @@ public class EventServiceImpl implements EventService{
 
     @Override
     public EventDTOResponse findById(String id) {
-        return eventRepository.findById(IdUtils.stringToId(id));
+        return eventRepository.findById(IdUtils.stringToId(id))
+                .map(EventMapper::eventoDTOResponseFromEvent)
+                .orElseThrow(() -> new NotFoundException(""));
     }
 
     @Override

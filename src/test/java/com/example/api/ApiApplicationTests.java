@@ -11,8 +11,7 @@ class ApiApplicationTests {
 	@Test
 	void verifyModularity(){
 		ApplicationModules modules = ApplicationModules.of(ApiApplication.class, JavaClass.
-				Predicates.resideInAPackage("com.example.api.shared")
-				.or(JavaClass.Predicates.resideInAPackage("com.example.api.infrastructure")));
+				Predicates.resideInAPackage("shared"));
 		modules.verify();
 	}
 }

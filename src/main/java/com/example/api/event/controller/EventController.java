@@ -11,6 +11,6 @@ public interface EventController {
 
     ResponseEntity<EventDTOResponse> create(EventCreateDTORequest request);
     ResponseEntity<EventDTOResponse> findById(String id);
-    ResponseEntity<List<EventDTOResponse>> find(int pageNum, int pageSize);
+    List<EventDTOResponse> find(int pageNum, int pageSize);
     ResponseEntity<Void> deleteById(String id);
 }

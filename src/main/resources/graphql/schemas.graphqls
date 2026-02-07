@@ -1,0 +1,24 @@
+type Query {
+    find(pageNum: Int!, pageSize: Int!): [Event!]!
+}
+
+enum EventStatus {
+    OPEN
+    CLOSED
+    ON_GOING
+    FULL
+    CANCELED
+    COMPLETED
+}
+
+type Event {
+    id: ID!
+    capacity: Int!
+    eventStatus: EventStatus!
+}
+
+type EventDTOResponse{
+    id: ID!
+    capacity: Int!
+    eventStatus: EventStatus!
+}

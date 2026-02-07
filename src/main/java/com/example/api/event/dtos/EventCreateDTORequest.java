@@ -1,4 +1,6 @@
 package com.example.api.event.dtos;
 
-public record EventCreateDTORequest() {
+public record EventCreateDTORequest(
+        Integer capacity
+) {
 }

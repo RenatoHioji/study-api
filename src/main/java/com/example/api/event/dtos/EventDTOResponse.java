@@ -1,4 +1,10 @@
 package com.example.api.event.dtos;
 
-public record EventDTOResponse() {
+import com.example.api.event.domain.enums.EventStatus;
+
+public record EventDTOResponse(
+        String id,
+        Integer capacity,
+        EventStatus eventStatus
+) {
 }

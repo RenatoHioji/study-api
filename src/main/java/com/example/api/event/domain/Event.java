@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
+import org.springframework.cglib.core.Local;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -31,28 +32,29 @@ public class Event extends BaseEntity {
         this.eventStatus = EventStatus.CLOSED;
     }
 
-    private void open(){
+    public void open(){
         if(this.eventStatus.equals(EventStatus.CANCELED)){
             this.eventStatus = EventStatus.OPEN;
         }
         throw new BussinessException("Não é possível reabrir um evento que não está cancelado.");
     }
 
-    private void start(){
+    public void start(){
         if(this.eventStatus.equals(EventStatus.FULL) || eventStatus.equals(EventStatus.OPEN)){
             this.eventStatus = EventStatus.ON_GOING;
         }
         throw new BussinessException("Não é possível iniciar um evento que não esteja cheio ou não esteja aberto");
     }
 
-    private void cancel(){
+    public void cancel(){
         if(!this.eventStatus.equals(EventStatus.COMPLETED)){
             this.eventStatus = EventStatus.CANCELED;
+            this.canceledAt = LocalDateTime.now();
         }
         throw new BussinessException("Não é possível cancelar um evento completo");
     }
 
-    private void complete(){
+    public void complete(){
         if(this.eventStatus.equals(EventStatus.ON_GOING)){
             this.eventStatus = EventStatus.COMPLETED;
         }
@@ -60,7 +62,7 @@ public class Event extends BaseEntity {
 
     }
 
-    private void full(){
+    public void full(){
         if(this.eventStatus.equals(EventStatus.OPEN)){
             this.eventStatus = EventStatus.FULL;
         }

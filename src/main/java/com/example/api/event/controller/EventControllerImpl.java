@@ -43,4 +43,10 @@ public class EventControllerImpl implements EventController{
         this.eventService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+    @Override
+    public ResponseEntity<Void> cancelById(String id) {
+        this.eventService.cancelById(id);
+        return ResponseEntity.noContent().build();
+    }
 }

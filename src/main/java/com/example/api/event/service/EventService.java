@@ -10,4 +10,5 @@ public interface EventService {
     EventDTOResponse findById(String id);
     List<EventDTOResponse> find(int pageNum, int pageSize);
     void deleteById(String id);
+    void cancelById(String id);
 }

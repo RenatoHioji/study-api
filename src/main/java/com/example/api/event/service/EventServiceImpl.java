@@ -41,4 +41,14 @@ public class EventServiceImpl implements EventService{
     public void deleteById(String id) {
         this.eventRepository.deleteById(IdUtils.stringToId(id));
     }
+
+    @Override
+    public void cancelById(String id) {
+        this.eventRepository.findById(IdUtils.stringToId(id))
+                .map(event -> {
+                    event.cancel();
+                    return this.eventRepository.save(event);
+                })
+                .orElseThrow(() -> new NotFoundException("Event não encontrado"));
+    }
 }

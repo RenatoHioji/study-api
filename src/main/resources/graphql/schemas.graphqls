@@ -1,5 +1,5 @@
 type Query {
-    find(pageNum: Int!, pageSize: Int!): [Event!]!
+    find(pageNum: Int!, pageSize: Int!): [EventDTOResponse!]!
 }
 
 enum EventStatus {
@@ -9,12 +9,6 @@ enum EventStatus {
     FULL
     CANCELED
     COMPLETED
-}
-
-type Event {
-    id: ID!
-    capacity: Int!
-    eventStatus: EventStatus!
 }
 
 type EventDTOResponse{
